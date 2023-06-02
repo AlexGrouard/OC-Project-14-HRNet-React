@@ -1,0 +1,20 @@
+.form, fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+    label {
+        margin-top: 1rem;
+        margin-bottom: 10px;
+    }
+
+    input{
+        width: 150px;
+    }
+
+    .address {
+        margin-top: 10px;
+        width: 280px;
+    }
+}
