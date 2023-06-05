@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom"
 import Form from "../component/form/form"
-function home() {
+
+function Home() {
 	return (
-		<main>
-			//listing here
-			<Form />
-		</main>
+		<div>
+			<h1>HRnet</h1>
+			<main>
+				<Link to='/tables'>View Current Employees</Link>
+				<Form />
+			</main>
+		</div>
 	)
 }
 
-export default home
+export default Home

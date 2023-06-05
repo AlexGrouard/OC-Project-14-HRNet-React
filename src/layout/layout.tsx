@@ -1,15 +1,15 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import Home from "../pages/home"
+import HRTable from "../component/table/HRtable"
+import Home from "../pages/Home"
 import styles from "./Layout.module.scss"
-import Header from "./header/header"
 
 function Layout(): JSX.Element {
 	return (
 		<Router>
-			<Header />
 			<div className={styles.container}>
 				<Routes>
 					<Route path='/' element={<Home />} />
+					<Route path='/tables' element={<HRTable />} />
 				</Routes>
 			</div>
 		</Router>
