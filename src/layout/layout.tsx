@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import HRTable from "../pages/table/HRtable"
+import HRTable from "../pages/HRtable"
 import Home from "../pages/Home"
 import styles from "./Layout.module.scss"
 
