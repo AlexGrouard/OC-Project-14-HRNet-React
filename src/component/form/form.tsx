@@ -9,10 +9,10 @@ import {
 	MenuItem,
 	Select,
 	TextField,
-	Typography,
+	Typography
 } from "@mui/material"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
-
+import { DatePicker } from "date-picker"
 import { useState } from "react"
 import { states } from "../../utils/states"
 
@@ -27,6 +27,12 @@ function Form(): JSX.Element {
 	const [zipCode, setZipCode] = useState("")
 	const [department, setDepartment] = useState("")
 
+	handleReturnDateBirth = (date: string) => {
+		setDateOfBirth(date)
+	}
+	handleReturnDateStart = (date: string) => {
+		setStartDate(date)
+	}
 	const defaultTheme = createTheme()
 
 	return (
@@ -41,7 +47,7 @@ function Form(): JSX.Element {
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
-						border: "1px solid lightgray",
+						border: "1px solid lightgray"
 					}}
 				>
 					<Typography component='h1' variant='h5'>
@@ -78,26 +84,15 @@ function Form(): JSX.Element {
 								/>
 							</Grid>
 							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									fullWidth
-									id='date-of-birth'
-									label='Date of Birth'
-									name='date-of-birth'
-									value={dateOfBirth}
-									onChange={(e) => setDateOfBirth(e.target.value)}
-									autoComplete='01/01/1985'
+								<DatePicker
+									yearRange={{ start: 1980, end: 2000 }}
+									returnDate={handleReturnDateBirth}
 								/>
 							</Grid>
 							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									fullWidth
-									id='start-date'
-									label='Start Date'
-									name='start-date'
-									value={startDate}
-									onChange={(e) => setStartDate(e.target.value)}
+								<DatePicker
+									yearRange={{ start: 2020, end: 2023 }}
+									returnDate={handleReturnDateStart}
 								/>
 							</Grid>
 							<Grid item xs={12}>
