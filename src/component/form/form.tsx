@@ -12,10 +12,10 @@ import {
 	Typography
 } from "@mui/material"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
-import { DatePicker } from "date-picker"
+import DatePicker from "date-picker-typescript"
+import "date-picker-typescript/dist/style.css"
 import { useState } from "react"
 import { states } from "../../utils/states"
-
 function Form(): JSX.Element {
 	const [firstName, setFirstName] = useState("")
 	const [lastName, setLastName] = useState("")
@@ -27,12 +27,13 @@ function Form(): JSX.Element {
 	const [zipCode, setZipCode] = useState("")
 	const [department, setDepartment] = useState("")
 
-	handleReturnDateBirth = (date: string) => {
+	const handleReturnDateBirth = (date: string) => {
 		setDateOfBirth(date)
 	}
-	handleReturnDateStart = (date: string) => {
+	const handleReturnDateStart = (date: string) => {
 		setStartDate(date)
 	}
+
 	const defaultTheme = createTheme()
 
 	return (
