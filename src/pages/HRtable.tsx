@@ -8,10 +8,15 @@ function HRTable(): JSX.Element {
 	let localData
 	//get local storage data
 	if (localStorage.getItem("data") === null) {
-		const employees: FormData = JSON.parse(localStorage.getItem("formData")!)
-		localStorage.removeItem("formData")
-		localData = data.push(employees)
-		localStorage.setItem("data", JSON.stringify(data))
+		if (localStorage.getItem("formData") !== null) {
+			const employees: FormData = JSON.parse(localStorage.getItem("formData")!)
+			localStorage.removeItem("formData")
+			localData = [employees]
+			localStorage.setItem("data", JSON.stringify(localData))
+		} else {
+			localData = data
+			localStorage.setItem("data", JSON.stringify(localData))
+		}
 	} else if (localStorage.getItem("formData") !== null) {
 		const employees: FormData = JSON.parse(localStorage.getItem("formData")!)
 		localStorage.removeItem("formData")
