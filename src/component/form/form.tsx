@@ -1,4 +1,5 @@
 import {
+	Alert,
 	Box,
 	Button,
 	Container,
@@ -7,11 +8,13 @@ import {
 	Grid,
 	InputLabel,
 	MenuItem,
+	Modal,
 	Select,
 	TextField,
-	Typography
+	ThemeProvider,
+	Typography,
+	createTheme
 } from "@mui/material"
-import { ThemeProvider, createTheme } from "@mui/material/styles"
 import DatePicker from "date-picker-typescript"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -20,6 +23,7 @@ import { states } from "../../utils/states"
 import "./form.scss"
 
 function Form(): JSX.Element {
+	//form state
 	const [firstName, setFirstName] = useState<string>("")
 	const [lastName, setLastName] = useState<string>("")
 	const [dateOfBirth, setDateOfBirth] = useState<string>("")
@@ -30,28 +34,63 @@ function Form(): JSX.Element {
 	const [zipCode, setZipCode] = useState<string>("")
 	const [department, setDepartment] = useState<string>("")
 	const navigate = useNavigate()
+	//modal
+	const [open, setOpen] = useState(false)
+	const handleClose = () => {
+		setOpen(false)
+		navigate("/tables")
+	}
+	const style = {
+		// eslint-disable-next-line @typescript-eslint/prefer-as-const
+		position: "absolute" as "absolute",
+		top: "50%",
+		left: "50%",
+		transform: "translate(-50%, -50%)",
+		width: 400,
+		bgcolor: "background.paper",
+		border: "2px solid #000",
+		boxShadow: 24,
+		p: 4
+	}
 
+	//date picker return date
 	const handleReturnDateBirth = (date: string) => {
 		setDateOfBirth(date)
 	}
 	const handleReturnDateStart = (date: string) => {
 		setStartDate(date)
 	}
+	//submit form
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		const formData: FormData = {
-			firstName: firstName,
-			lastName: lastName,
-			dateOfBirth: dateOfBirth,
-			startDate: startDate,
-			street: street,
-			city: city,
-			usState: usState,
-			zipCode: zipCode,
-			department: department
+		if (
+			firstName === "" ||
+			lastName === "" ||
+			dateOfBirth === "" ||
+			startDate === "" ||
+			street === "" ||
+			city === "" ||
+			usState === "" ||
+			zipCode === "" ||
+			zipCode.length !== 5 ||
+			department === ""
+		)
+			return alert("Please fill out all fields")
+		else {
+			const formData: FormData = {
+				firstName: firstName,
+				lastName: lastName,
+				dateOfBirth: dateOfBirth,
+				startDate: startDate,
+				street: street,
+				city: city,
+				usState: usState,
+				zipCode: zipCode,
+				department: department
+			}
+			localStorage.setItem("formData", JSON.stringify(formData))
+			setOpen(true)
 		}
-		localStorage.setItem("formData", JSON.stringify(formData))
-		navigate("/tables")
 	}
 
 	const defaultTheme = createTheme()
@@ -191,8 +230,9 @@ function Form(): JSX.Element {
 									label='Zip Code'
 									name='zip-code'
 									error={
-										(zipCode === "" || parseInt(zipCode) !== Number(zipCode)) &&
-										zipCode.length != 5
+										zipCode === "" ||
+										parseInt(zipCode) !== Number(zipCode) ||
+										zipCode.length !== 5
 									}
 									value={zipCode}
 									onChange={(e) => setZipCode(e.target.value)}
@@ -207,6 +247,13 @@ function Form(): JSX.Element {
 						>
 							Save
 						</Button>
+						<Modal open={open} onClose={handleClose}>
+							<Box sx={style}>
+								<Typography id='modal-modal-description' sx={{ mt: 2 }}>
+									Employee Created !
+								</Typography>
+							</Box>
+						</Modal>
 					</Box>
 				</Box>
 			</Container>
