@@ -1,14 +1,13 @@
-export const nodes = [
+export const data = [
 	{
-		id: "0",
 		firstName: "Jane",
 		lastName: "Doe",
-		startDate: "2023-05-06",
-		department: "Sales",
-		dateOfBirth: "1985-01-01",
-		street: "11 St John Street",
-		city: "Atlanta",
-		state: "Georgia",
-		zipCode: 30033,
-	},
+		dateOfBirth: "01/01/1990",
+		startDate: "01/01/2012",
+		street: "123 Main St",
+		city: "Anytown",
+		usState: "NY",
+		zipCode: "12345",
+		department: "Engineering"
+	}
 ]
