@@ -1,12 +1,17 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import HRTable from "../pages/HRtable"
 import Home from "../pages/Home"
-import styles from "./Layout.module.scss"
+
+/**
+ * @function Layout
+ * @returns Layout component
+ * @description Layout component for routing
+ */
 
 function Layout(): JSX.Element {
 	return (
 		<Router>
-			<div className={styles.container}>
+			<div>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/tables' element={<HRTable />} />

@@ -1,3 +1,5 @@
+// Mock Data for the application use to populate the table if no data is found in the local storage
+
 export const data = [
 	{
 		firstName: "Jane",

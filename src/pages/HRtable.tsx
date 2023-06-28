@@ -4,6 +4,13 @@ import { useMemo } from "react"
 import { Link } from "react-router-dom"
 import { data } from "../data/data"
 import { FormData } from "../types/types"
+
+/** 
+ * @function HRTable
+ * @returns Table page
+ * @description Table page for displaying employee data
+ */
+
 function HRTable(): JSX.Element {
 	let localData
 	//get local storage data

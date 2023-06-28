@@ -17,9 +17,15 @@ import {
 import DatePicker from "date-picker-typescript"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { FormData } from "../../types/types"
-import { states } from "../../utils/states"
+import { FormData } from "../types/types"
+import { states } from "../utils/states"
 import "./form.scss"
+
+/**
+ * @function Form
+ * @returns Form component
+ * @description Form component for creating new employee
+ */
 
 function Form(): JSX.Element {
 	//form state
@@ -121,7 +127,6 @@ function Form(): JSX.Element {
 						<Grid container spacing={2}>
 							<Grid item xs={12} sm={6}>
 								<TextField
-									required
 									fullWidth
 									id='firstName'
 									label='First Name'
@@ -134,7 +139,6 @@ function Form(): JSX.Element {
 							</Grid>
 							<Grid item xs={12} sm={6}>
 								<TextField
-									required
 									fullWidth
 									id='lastName'
 									label='Last Name'
@@ -179,7 +183,6 @@ function Form(): JSX.Element {
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
-									required
 									fullWidth
 									id='street'
 									label='Street'
@@ -191,7 +194,6 @@ function Form(): JSX.Element {
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
-									required
 									fullWidth
 									id='city'
 									label='city'
@@ -223,7 +225,6 @@ function Form(): JSX.Element {
 							</Grid>
 							<Grid item xs={12}>
 								<TextField
-									required
 									fullWidth
 									id='zipCode'
 									label='Zip Code'

@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom"
-import Form from "../component/form/form"
+import Form from "../component/form"
+
+/**
+ * @function Home
+ * @returns Home page
+ * @description Home page for creating new employee
+ */
 
 function Home() {
 	return (
