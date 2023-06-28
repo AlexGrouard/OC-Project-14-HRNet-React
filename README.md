@@ -1,9 +1,4 @@
-
-
 This project was realized with Vite Typescript and React
-
-
-
 
 ## Badges
 
@@ -13,16 +8,13 @@ This project was realized with Vite Typescript and React
 
 [![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-
 ## Installation
 
 clone the repo from github.
 
-This project is already build so you can run the following command to use it right away.
-
 ```bash
   cd hrnet
-  npm run preview
+  npm run dev
 ```
 
 ## Documentation
