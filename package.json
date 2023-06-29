@@ -15,6 +15,7 @@
     "@fontsource/roboto": "^5.0.2",
     "@mui/material": "^5.13.3",
     "@table-library/react-table-library": "^4.1.4",
+    "cypress": "^12.16.0",
     "date-picker-typescript": "^1.1.0",
     "material-react-table": "^1.14.0",
     "react": "^18.2.0",

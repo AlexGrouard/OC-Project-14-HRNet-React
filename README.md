@@ -12,8 +12,15 @@ This project was realized with Vite Typescript and React
 
 clone the repo from github.
 
+Install all the dependencies
+
 ```bash
-  cd hrnet
+  npm install
+```
+
+Then simply run the project
+
+```bash
   npm run dev
 ```
 
