@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 describe("form opening", () => {
 	it("open the localhost page", () => {
 		cy.visit("http://localhost:5173/")
@@ -54,3 +55,10 @@ describe("form testing", () => {
         /* ==== End Cypress Studio ==== */
     })
 })
+=======
+describe('template spec', () => {
+  it('passes', () => {
+    cy.visit('https://example.cypress.io')
+  })
+})
+>>>>>>> c21798d (cypress test)

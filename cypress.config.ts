@@ -2,11 +2,15 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   e2e: {
+<<<<<<< HEAD
     experimentalStudio: true,
+=======
+>>>>>>> c21798d (cypress test)
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
   },
+<<<<<<< HEAD
 
   component: {
     devServer: {
@@ -14,4 +18,6 @@ export default defineConfig({
       bundler: "vite",
     },
   },
+=======
+>>>>>>> c21798d (cypress test)
 });
