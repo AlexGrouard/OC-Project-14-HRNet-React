@@ -15,6 +15,7 @@ import {
 	createTheme
 } from "@mui/material"
 import DatePicker from "date-picker-typescript"
+import { parse } from "path"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { FormData } from "../types/types"
@@ -78,7 +79,12 @@ function Form(): JSX.Element {
 			usState === "" ||
 			zipCode === "" ||
 			zipCode.length !== 5 ||
-			department === ""
+			department === "" ||
+			parseInt(firstName) === Number(firstName) ||
+			parseInt(lastName) === Number(lastName) ||
+			parseInt(street) === Number(street) ||
+			parseInt(city) === Number(city) ||
+			parseInt(zipCode) !== Number(zipCode)
 		)
 			return alert("Please fill out all fields")
 		else {
@@ -131,7 +137,10 @@ function Form(): JSX.Element {
 									id='firstName'
 									label='First Name'
 									name='first-name'
-									error={firstName === "" || typeof firstName !== "string"}
+									error={
+										firstName === "" ||
+										parseInt(firstName) === Number(firstName)
+									}
 									value={firstName}
 									onChange={(e) => setFirstName(e.target.value)}
 									autoFocus
@@ -143,7 +152,9 @@ function Form(): JSX.Element {
 									id='lastName'
 									label='Last Name'
 									name='last-name'
-									error={lastName === "" || typeof lastName !== "string"}
+									error={
+										lastName === "" || parseInt(lastName) === Number(lastName)
+									}
 									value={lastName}
 									onChange={(e) => setLastName(e.target.value)}
 								/>
@@ -169,7 +180,7 @@ function Form(): JSX.Element {
 										id='Department'
 										labelId='DepartmentLabel'
 										label='Department'
-										error={department === "" || typeof department !== "string"}
+										error={department === ""}
 										value={department}
 										onChange={(e) => setDepartment(e.target.value)}
 									>
@@ -187,7 +198,7 @@ function Form(): JSX.Element {
 									id='street'
 									label='Street'
 									name='street'
-									error={street === "" || typeof street !== "string"}
+									error={street === "" || parseInt(street) === Number(street)}
 									value={street}
 									onChange={(e) => setStreet(e.target.value)}
 								/>
@@ -198,7 +209,7 @@ function Form(): JSX.Element {
 									id='city'
 									label='city'
 									name='city'
-									error={city === "" || typeof city !== "string"}
+									error={city === "" || parseInt(city) === Number(city)}
 									value={city}
 									onChange={(e) => setCity(e.target.value)}
 								/>
